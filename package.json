@@ -1,0 +1,22 @@
+{
+  "name": "atlas",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ATLAS — asistente personal de IA multiplataforma",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/check-node.mjs && npm run build --workspace web && npm run build --workspace server",
+    "start": "node scripts/check-node.mjs && npm run start --workspace server",
+    "test": "npm test --workspace server",
+    "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace web",
+    "reset-password": "node --disable-warning=ExperimentalWarning scripts/reset-password.mjs"
+  }
+}
